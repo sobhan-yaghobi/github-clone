@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes"
 import type { Metadata } from "next"
 
 import "./globals.css"
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Roboto({ weight: ["100", "300", "400", "500", "900"], subsets: ["latin"] })
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           themes={["light", "dark"]}
         >
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
