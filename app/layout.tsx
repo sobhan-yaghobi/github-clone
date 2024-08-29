@@ -3,15 +3,14 @@ import { ThemeProvider } from "next-themes"
 
 import type { Metadata } from "next"
 
-import Header from "@/components/modules/Header"
-
 import "./globals.css"
 
 const inter = Roboto({ weight: ["100", "300", "400", "500", "900"], subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "github clone",
-  description: "",
+  title: "GitRetrieve",
+  description:
+    "Easily explore and download your GitHub repositories. Log in to start managing your code effortlessly",
 }
 
 export default function RootLayout({
@@ -29,7 +28,6 @@ export default function RootLayout({
           disableTransitionOnChange
           themes={["light", "dark"]}
         >
-          <Header />
           {children}
         </ThemeProvider>
       </body>
