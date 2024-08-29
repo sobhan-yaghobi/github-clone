@@ -4,6 +4,8 @@ import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import { useToast } from "../ui/use-toast"
 
+import { AUTHORIZE_URL, CLIENT_ID } from "@/lib/utils"
+
 import GithubIcon from "@/public/github-mark-white.svg"
 
 import { Button } from "../ui/button"
@@ -15,14 +17,11 @@ const GithubLoginButton = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   const authorizeInGithub = () => {
-    const clientId = process.env.NEXT_PUBLIC_CLIENT_ID
-    const authorizeUrl = process.env.NEXT_PUBLIC_AUTHORIZE_URL
-
-    if (!clientId || !authorizeUrl)
+    if (!CLIENT_ID || !AUTHORIZE_URL)
       return toast({ title: "client id not found", variant: "destructive" })
 
     setIsLoading(true)
-    router.push(`${authorizeUrl}?client_id=${clientId}`)
+    router.push(`${AUTHORIZE_URL}?client_id=${CLIENT_ID}`)
   }
 
   return (
@@ -50,7 +49,7 @@ const GithubLoginButton = () => {
             />
           </svg>
         ) : (
-          <Image width={16} height={16} src={GithubIcon} alt="github-icon" />
+          <Image width={16} height={16} src={GithubIcon} priority alt="github-icon" />
         )}
       </div>
       <span>Log in with GitHub</span>
