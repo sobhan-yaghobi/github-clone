@@ -25,7 +25,7 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
       <section className="col-span-3 row-span-4 flex flex-col justify-between">
         <PersonalInfo {...user} />
       </section>
-      <section className="col-span-3 row-span-8">
+      <section className="col-span-3 row-span-8 flex flex-col">
         <Repositories />
       </section>
       <section className="row-span-3 flex flex-col center">

@@ -33,3 +33,9 @@ export const CLIENT_SECRET = process.env.NEXT_PUBLIC_CLIENT_SECRET
 export const AUTHORIZE_URL = "https://github.com/login/oauth/authorize"
 export const ACCESS_TOKEN_URL = "https://github.com/login/oauth/access_token"
 export const GET_USER_URL = "https://api.github.com/user"
+export const GET_REPOSITORY_LIST = "https://api.github.com/user/repos"
+export const getRepositoryUrlDownload = (
+  username: string,
+  repositoryName: string,
+  defaultBranch: string
+) => `https://github.com/${username}/${repositoryName}/archive/refs/heads/${defaultBranch}.zip`
