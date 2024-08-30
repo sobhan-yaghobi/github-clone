@@ -1,20 +1,20 @@
 import axios from "axios"
 import { BASE_URL } from "../utils"
+import { session } from "./serverFunction"
 
 export const getAccessToken = async (code: string | undefined | null) => {
   try {
-    if (!code || !BASE_URL) throw new Error("code or url is missing")
+    if (!code) throw new Error("Authorization code is missing")
+    if (!BASE_URL) throw new Error("Base URL is not configured")
 
     const { data } = await axios.get(`${BASE_URL}/api/auth/accessToken`, {
-      params: {
-        code,
-      },
+      params: { code },
     })
 
     return data
   } catch (error) {
     console.error("Get token failed:", error)
-    return false
+    return { message: "Failed to retrieve access token", status: false }
   }
 }
 
@@ -27,25 +27,25 @@ export const getUser = async (token: string) => {
     })
     return data
   } catch (error) {
-    return { message: "failed to get user", status: false }
+    console.error("Failed to get user:", error)
+    return { message: "Failed to get user", status: false }
   }
 }
 
-export const verifyToken = async (
-  token: string | undefined | null,
-  userId: string | undefined | null
-) => {
+export const verifySession = async (session: session) => {
   try {
+    const { token, userId } = session
     if (!token || !userId || !BASE_URL)
-      throw new Error("failed to verify user , something is missing")
+      throw new Error("Failed to verify user, something is missing")
 
     const userData = await getUser(token)
 
-    if (userData.id !== userId) throw new Error("user is not equal")
+    const isUserIdMismatch = "id" in userData && userData.id !== userId
+    if (isUserIdMismatch) throw new Error("User is not valid, id is mismatch")
 
-    return userData
+    return { message: "Verify session successfully", status: true }
   } catch (error) {
     console.error("Token verification failed:", error)
-    return false
+    return { message: "Failed to verify session", status: false }
   }
 }

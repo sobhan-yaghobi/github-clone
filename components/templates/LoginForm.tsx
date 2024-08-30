@@ -22,7 +22,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ code }) => {
   const login = async (code: string) => {
     setIsLoading(true)
     const loginResult = await loginFormAction(code)
-    if (loginResult.status) {
+    if (loginResult && loginResult.status) {
       return loginSuccessfully(loginResult.message)
     } else {
       return loginFailed(loginResult.message)
@@ -30,7 +30,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ code }) => {
   }
 
   const loginSuccessfully = (message: string) => {
-    toast({ title: message, variant: "default" })
+    toast({ title: message, variant: "success" })
     return router.push("/")
   }
 
