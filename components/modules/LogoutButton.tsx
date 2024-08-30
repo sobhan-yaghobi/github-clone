@@ -27,7 +27,7 @@ const LogoutButton = () => {
             <LogOut />
           </Button>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent className="w-11/12">
           <DialogHeader>
             <DialogTitle>Are you absolutely sure?</DialogTitle>
             <DialogDescription>
@@ -41,7 +41,12 @@ const LogoutButton = () => {
                 Cancel
               </Button>
             </DialogClose>
-            <Button onClick={logout} type="button" variant="destructive">
+            <Button
+              onClick={logout}
+              type="button"
+              variant="destructive"
+              className="lg:mr-3 max-lg:mb-3"
+            >
               Yes, I am sure
             </Button>
           </DialogFooter>

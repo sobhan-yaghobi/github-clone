@@ -12,7 +12,7 @@ type ProfileProps = {
 
 const Profile: React.FC<ProfileProps> = ({ user }) => {
   return (
-    <div className="w-full current-screen-height py-6 flex flex-col gap-6 max-lg:h-auto">
+    <div className="w-full current-screen-height py-6 flex flex-col max-lg:h-auto">
       <section className="h-72 flex overflow-hidden max-lg:h-auto max-lg:mb-12 max-lg:center max-lg:flex-col">
         <section className="w-72 center lg:mr-6 max-lg:mb-6">
           <Image
