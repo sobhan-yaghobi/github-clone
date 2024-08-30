@@ -25,7 +25,7 @@ export const getUser = async (token: string) => {
         Authorization: `Bearer ${token}`,
       },
     })
-    return data
+    return data as GitHubUser
   } catch (error) {
     console.error("Failed to get user:", error)
     return { message: "Failed to get user", status: false }
@@ -40,7 +40,7 @@ export const verifySession = async (session: session) => {
 
     const userData = await getUser(token)
 
-    const isUserIdMismatch = "id" in userData && userData.id !== userId
+    const isUserIdMismatch = "id" in userData && userData.id.toString() !== userId.toString()
     if (isUserIdMismatch) throw new Error("User is not valid, id is mismatch")
 
     return { message: "Verify session successfully", status: true }
