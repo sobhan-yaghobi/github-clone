@@ -5,6 +5,7 @@ import GithubIcon from "@/public/github-mark.svg"
 
 import ChangeThemeToggle from "./ChangeThemeToggle"
 import Image from "next/image"
+import LogoutButton from "./LogoutButton"
 
 const Header: React.FC = () => {
   return (
@@ -29,7 +30,14 @@ const Header: React.FC = () => {
           </div>
           <h3 className="text-xl font-extrabold ml-3">Github</h3>
         </div>
-        <ChangeThemeToggle />
+        <ul className="flex items-center [&>*]:ml-3">
+          <li>
+            <LogoutButton />
+          </li>
+          <li>
+            <ChangeThemeToggle />
+          </li>
+        </ul>
       </div>
     </header>
   )
