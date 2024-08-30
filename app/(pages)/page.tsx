@@ -7,8 +7,6 @@ import errorIcon from "@/public/error-icon.svg"
 import Image from "next/image"
 import Profile from "@/components/templates/Profile"
 
-export const revalidate = 3600
-
 const page: React.FC = async () => {
   const session = getSession() as session
 

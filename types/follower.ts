@@ -22,4 +22,4 @@ type GitHubFollower = {
   starred_at?: string
 }
 
-type GitHubFollowerArray = GitHubUser[]
+type GitHubFollowerArray = GitHubFollower[]

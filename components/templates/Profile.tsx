@@ -28,8 +28,8 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
       <section className="col-span-3 row-span-8">
         <Repositories />
       </section>
-      <section className="row-span-3">
-        <Followers />
+      <section className="row-span-3 flex flex-col center">
+        <Followers url={user.followers_url} />
       </section>
       <section className="row-span-3">
         <Follows />
