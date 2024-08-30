@@ -19,7 +19,7 @@ const Repository: React.FC<RepositoryProps> = ({ repository }) => {
   )
 
   return (
-    <div className="p-3 mb-3 mr-3 rounded-md border-b-2 border-primary flex items-center justify-between">
+    <div className="p-3 mb-6 rounded-md border-b-2 border-primary flex items-center justify-between shadow-xl">
       <section className="flex-1">
         <div className="flex mb-3 flex-wrap gap-3">
           <Link target="_blank" className="hover:underline" href={repository.html_url}>
