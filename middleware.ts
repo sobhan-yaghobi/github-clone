@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { verifySession } from "./lib/auth/clientFunctions"
+import { verifySession } from "./lib/auth/serverFunction"
 import { getSession } from "./lib/auth/serverFunction"
 
 export default async function middleware(request: NextRequest) {
