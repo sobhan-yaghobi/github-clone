@@ -11,17 +11,21 @@ import GithubIcon from "@/public/github-mark-white.svg"
 import { Button } from "../ui/button"
 import Image from "next/image"
 
-const GithubLoginButton = () => {
+type GithubLoginButtonProps = {
+  isLoading: boolean
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const GithubLoginButton: React.FC<GithubLoginButtonProps> = ({ isLoading, setIsLoading }) => {
   const { toast } = useToast()
   const router = useRouter()
-  const [isLoading, setIsLoading] = useState(false)
 
   const authorizeInGithub = () => {
     if (!CLIENT_ID || !AUTHORIZE_URL)
       return toast({ title: "client id not found", variant: "destructive" })
 
     setIsLoading(true)
-    router.push(`${AUTHORIZE_URL}?client_id=${CLIENT_ID}`)
+    router.push(`${AUTHORIZE_URL}?client_id=${CLIENT_ID}&scope=repo`)
   }
 
   return (

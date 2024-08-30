@@ -17,8 +17,9 @@ export const GET = async (request: NextRequest) => {
 
     return NextResponse.json(data)
   } catch (error) {
+    const message = typeof error === "string" ? error : "failed to get access token"
     return NextResponse.json({
-      message: typeof error === "string" ? error : "failed to get access token",
+      message,
       status: false,
     })
   }

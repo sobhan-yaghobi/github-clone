@@ -1,10 +1,14 @@
-import LoginForm from "@/components/templates/LoginForm"
 import React from "react"
 
-const page: React.FC = () => {
+import { SearchParamsComponentProps } from "@/types/utils"
+
+import LoginForm from "@/components/templates/LoginForm"
+
+const page: React.FC<SearchParamsComponentProps> = ({ searchParams }) => {
+  const code = typeof searchParams?.code === "string" ? searchParams?.code : undefined
   return (
     <div className="w-svw h-screen center">
-      <LoginForm />
+      <LoginForm code={code} />
     </div>
   )
 }

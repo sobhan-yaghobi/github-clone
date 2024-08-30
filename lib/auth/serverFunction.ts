@@ -1,22 +1,33 @@
 import "server-only"
 
 import { cookies } from "next/headers"
-import { redirect } from "next/navigation"
 
-export const setToken = async (token: string) => {
-  const threeDay = 24 * 60 * 60 * 1000 * 3
-  cookies().set("token", token, {
+type session = { userId: string; token: string }
+
+export const setSession = (session: session) => {
+  const threeDay = 24 * 60 * 60 * 1000
+  cookies().set("session", JSON.stringify(session), {
     httpOnly: true,
     secure: true,
-    expires: threeDay,
+    maxAge: threeDay,
     sameSite: "lax",
     path: "/",
   })
 }
 
-export const getToken = () => cookies().get("token")
-
-export const deleteToken = () => {
-  cookies().delete("token")
-  redirect("/login")
+export const getSession = (): session | undefined => {
+  const sessionString = cookies().get("session")?.value
+  if (sessionString) {
+    try {
+      const sessionData = JSON.parse(sessionString) as session
+      if (sessionData && sessionData.token && sessionData.userId) {
+        return sessionData
+      }
+    } catch (error) {
+      console.error("Failed to parse session:", error)
+      deleteSession()
+    }
+  }
 }
+
+export const deleteSession = () => cookies().delete("session")

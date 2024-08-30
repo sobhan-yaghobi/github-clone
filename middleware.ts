@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from "next/server"
 import { verifyToken } from "./lib/auth/clientFunctions"
+import { getSession } from "./lib/auth/serverFunction"
 
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const token = request.cookies.get("token")?.value
+  const session = getSession()
 
-  if (token) {
-    const verifyTokenResult = await verifyToken(token)
+  if (session?.token) {
+    const verifyTokenResult = await verifyToken(session.token, session.userId)
     if (!verifyTokenResult) return redirectToLoginAndDeleteToken(request)
 
     if (pathname.startsWith("/login")) return redirectToHomePage(request)
