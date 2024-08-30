@@ -20,10 +20,10 @@ const Repository: React.FC<RepositoryProps> = ({ repository }) => {
 
   return (
     <div className="p-3 mb-3 mr-3 rounded-md border-b-2 border-primary flex items-center justify-between">
-      <section>
-        <div className="flex mb-3">
+      <section className="flex-1">
+        <div className="flex mb-3 flex-wrap gap-3">
           <Link target="_blank" className="hover:underline" href={repository.html_url}>
-            <h3 className="text-xl font-semibold mr-3">{repository.name}</h3>
+            <h3 className="text-xl font-semibold">{repository.name}</h3>
           </Link>
           <Badge variant="outline">{repository.private ? "private" : "public"}</Badge>
         </div>
@@ -35,7 +35,7 @@ const Repository: React.FC<RepositoryProps> = ({ repository }) => {
           </ul>
         </section>
       </section>
-      <section>
+      <section className="w-14 center">
         <Link href={downloadUrl}>
           <Button size="icon" variant="ghost">
             <DownloadCloud />

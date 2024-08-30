@@ -19,7 +19,7 @@ const Repositories: React.FC = async () => {
     return (
       <>
         <h3 className="text-3xl font-oswald capitalize mb-3">Repositories</h3>
-        <ul className="flex-1 overflow-y-auto">
+        <ul>
           {data.map((repository) => (
             <li key={repository.id}>
               <Repository repository={{ ...repository }} />

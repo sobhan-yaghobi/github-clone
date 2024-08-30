@@ -16,13 +16,15 @@ const Follower: React.FC<FollowerProps> = ({ follower, index }) => {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Avatar
-          style={{ zIndex: index + 1 }}
-          className="size-12 relative border border-solid border-primary hover:cursor-pointer hover:border-2 hover:!z-40"
-        >
-          <AvatarImage src={follower.avatar_url} />
-          <AvatarFallback>{follower.login}</AvatarFallback>
-        </Avatar>
+        <Link target="_blank" href={follower.html_url}>
+          <Avatar
+            style={{ zIndex: index + 1 }}
+            className="size-12 relative border border-solid border-primary select-none hover:cursor-pointer hover:border-2 hover:!z-40"
+          >
+            <AvatarImage src={follower.avatar_url} />
+            <AvatarFallback>{follower.login}</AvatarFallback>
+          </Avatar>
+        </Link>
       </HoverCardTrigger>
       <HoverCardContent className="w-64">
         <div className="flex justify-between">

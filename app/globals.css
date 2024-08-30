@@ -66,6 +66,16 @@
   body {
     @apply bg-background text-foreground font-roboto;
   }
+
+  img {
+    -moz-user-select: none !important;
+    -webkit-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+    user-drag: none !important;
+    -webkit-touch-callout: none !important;
+  }
 }
 
 @layer components {
