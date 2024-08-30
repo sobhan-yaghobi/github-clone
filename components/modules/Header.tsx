@@ -28,7 +28,7 @@ const Header: React.FC = () => {
               alt="github-icon"
             />
           </div>
-          <h3 className="text-xl font-extrabold ml-3">Github</h3>
+          <h3 className="text-xl font-extrabold ml-3">GitRetrieve</h3>
         </div>
         <ul className="flex items-center [&>*]:ml-3">
           <li>

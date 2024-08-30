@@ -9,7 +9,7 @@ import { loginFormAction } from "@/app/actions/login"
 import GithubLoginButton from "../modules/GithubLoginButton"
 
 type LoginFormProps = {
-  code: string | undefined
+  code: string | null
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ code }) => {
@@ -21,17 +21,22 @@ const LoginForm: React.FC<LoginFormProps> = ({ code }) => {
 
   const login = async (code: string) => {
     setIsLoading(true)
-    const loginResult = await loginFormAction(code)
-    if (loginResult && loginResult.status) {
-      return loginSuccessfully(loginResult.message)
-    } else {
-      return loginFailed(loginResult.message)
+    try {
+      const loginResult = await loginFormAction(code)
+      if (loginResult?.status) {
+        loginSuccessfully(loginResult.message)
+      } else {
+        loginFailed(loginResult.message)
+      }
+    } catch (error) {
+      console.error("Login error:", error)
+      loginFailed("An unexpected error occurred")
     }
   }
 
   const loginSuccessfully = (message: string) => {
     toast({ title: message, variant: "success" })
-    return router.push("/")
+    router.push("/")
   }
 
   const loginFailed = (message: string) => {
@@ -41,13 +46,16 @@ const LoginForm: React.FC<LoginFormProps> = ({ code }) => {
     params.delete("code")
     router.replace(`${pathname}?${params.toString()}`)
 
-    return toast({ title: message, variant: "destructive" })
+    toast({ title: message, variant: "destructive" })
   }
 
   useEffect(() => {
-    code ? login(code) : setIsLoading(false)
+    if (code) {
+      login(code)
+    } else {
+      setIsLoading(false)
+    }
   }, [code])
-
   return (
     <div className="bg-white/50 dark:bg-black/50 max-w-96 p-6 backdrop-blur-lg shadow-xl shadow-black/10 rounded-lg absolute">
       <section className="text-center [&>*]:mt-3 [&]:first:*:!mt-0">

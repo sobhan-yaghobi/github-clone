@@ -42,7 +42,7 @@ const LogoutButton = () => {
               </Button>
             </DialogClose>
             <Button onClick={logout} type="button" variant="destructive">
-              Yes, I'm sure
+              Yes, I am sure
             </Button>
           </DialogFooter>
         </DialogContent>
