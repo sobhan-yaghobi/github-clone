@@ -29,7 +29,7 @@ const Followers: React.FC<FollowersProps> = async ({ url }) => {
         <ul className="flex-1 flex flex-row-reverse items-center [&>*]:first:ml-0 [&>*]:-ml-3">
           {isFollowerCountMoreThanFive && (
             <li className="bg-primary size-12 center relative z-10 rounded-full border border-solid border-primary">
-              +{followerCount}
+              +{followerCount - 6}
             </li>
           )}
 

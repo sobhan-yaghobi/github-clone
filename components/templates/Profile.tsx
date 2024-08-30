@@ -4,7 +4,7 @@ import Image from "next/image"
 import PersonalInfo from "./PersonalInfo"
 import Repositories from "./Repositories"
 import Followers from "./Followers"
-import Follows from "./Follows"
+import Following from "./Following"
 
 type ProfileProps = {
   user: GitHubUser
@@ -31,8 +31,8 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
       <section className="row-span-3 flex flex-col center">
         <Followers url={user.followers_url} />
       </section>
-      <section className="row-span-3">
-        <Follows />
+      <section className="row-span-3 flex flex-col center">
+        <Following url={user.following_url} />
       </section>
     </div>
   )
