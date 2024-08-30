@@ -10,7 +10,7 @@ export const loginFormAction = async (code: string) => {
       const userResult = await getUser(accessTokenResult.access_token)
 
       if ("id" in userResult) {
-        setSession({ userId: userResult.id, token: accessTokenResult.access_token })
+        setSession({ userId: userResult.id.toString(), token: accessTokenResult.access_token })
         return { message: "Login successfully", status: true }
       } else {
         throw new Error("User not found")

@@ -23,11 +23,7 @@ const page: React.FC = async () => {
     )
   }
 
-  return (
-    <>
-      <Profile user={userData} />
-    </>
-  )
+  return <Profile user={userData} />
 }
 
 export default page
