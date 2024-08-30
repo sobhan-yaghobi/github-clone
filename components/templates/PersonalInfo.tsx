@@ -12,7 +12,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ ...user }) => {
     <>
       <div className="[&>*]:mb-3">
         <h3 className="text-3xl font-oswald capitalize">{user.name}</h3>
-        <ul className="flex items-center [&>*]:mr-3">
+        <ul className="flex items-center flex-wrap [&>*]:mr-3 max-lg:justify-center">
           <li>
             <Badge variant="outline">
               <MapPin className="icon-sm mr-1" />
@@ -34,11 +34,11 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ ...user }) => {
         </ul>
         <p className="font-thin text-base">{user.bio}</p>
       </div>
-      <ul className="flex items-center [&>*]:mr-3">
+      <ul className="flex items-center lg:[&>*]:mr-3 max-lg:flex-col max-lg:[&>*]:mb-3">
         <li>
           <Link target="_blank" href={`mailto:${user.email}`}>
             <Button variant="ghost" size="sm">
-              <Mail className="mr-1" />
+              <Mail className="icon-sm mr-1" />
               {user.email}
             </Button>
           </Link>
@@ -47,7 +47,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ ...user }) => {
           <Link target="_blank" href={user.html_url}>
             <Button size="sm">
               <span>github account</span>
-              <ArrowUpRight className="ml-1" />
+              <ArrowUpRight className="icon-sm ml-1" />
             </Button>
           </Link>
         </li>
