@@ -52,3 +52,8 @@ type GitHubUser = GitHubUserBase & {
   business_plus?: boolean
   ldap_dn?: string
 }
+
+type PersonalInfoProps = Pick<
+  GitHubUser,
+  "name" | "location" | "created_at" | "updated_at" | "bio" | "email" | "html_url"
+>

@@ -1,4 +1,4 @@
-import { Roboto } from "next/font/google"
+import { Roboto, Oswald } from "next/font/google"
 import { ThemeProvider } from "next-themes"
 
 import type { Metadata } from "next"
@@ -6,7 +6,17 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 
-const inter = Roboto({ weight: ["100", "300", "400", "500", "900"], subsets: ["latin"] })
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "900"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+})
+
+const oswald = Oswald({
+  weight: ["500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-oswald",
+})
 
 export const metadata: Metadata = {
   title: "GitRetrieve",
@@ -21,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${oswald.variable} ${roboto.variable}`}>
         <ThemeProvider
           enableSystem
           attribute="class"

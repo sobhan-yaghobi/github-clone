@@ -64,7 +64,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-roboto;
   }
 }
 
@@ -73,7 +73,11 @@
     @apply flex items-center justify-center;
   }
 
+  .icon-sm {
+    @apply size-4;
+  }
+
   .current-screen-height {
-    height: calc(100dvh - 5rem);
+    height: calc(100vh - 5rem);
   }
 }
