@@ -29,7 +29,12 @@ const GithubLoginButton: React.FC<GithubLoginButtonProps> = ({ isLoading, setIsL
   }
 
   return (
-    <Button disabled={isLoading} onClick={authorizeInGithub} variant="secondary">
+    <Button
+      disabled={isLoading}
+      onClick={authorizeInGithub}
+      variant="default"
+      className="dark:bg-secondary dark:text-secondary-foreground dark:hover:bg-secondary/80"
+    >
       <div className="size-4 mr-3">
         {isLoading ? (
           <svg
