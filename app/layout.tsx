@@ -1,7 +1,7 @@
 import { Roboto, Oswald } from "next/font/google"
 import { ThemeProvider } from "next-themes"
 
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
@@ -22,6 +22,13 @@ export const metadata: Metadata = {
   title: "GitRetrieve",
   description:
     "Easily explore and download your GitHub repositories. Log in to start managing your code effortlessly",
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 }
 
 export default function RootLayout({
