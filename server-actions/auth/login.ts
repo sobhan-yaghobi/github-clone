@@ -18,7 +18,8 @@ export const loginFormAction = async (code: string) => {
       throw new Error("Access token not found")
     }
   } catch (error) {
-    const message = typeof error === "string" ? error : "Login failed"
-    return { message, status: false }
+    console.log("loginFormAction failed :", error)
+
+    return { message: "Login failed", status: false }
   }
 }

@@ -11,7 +11,7 @@ export const GET = async (request: NextRequest) => {
     const code = searchParams.get("code")
 
     if (!CLIENT_ID || !CLIENT_SECRET || !code)
-      throw new Error("Get access token failed, some value are missing")
+      throw new Error("Get access token failed, some values are missing")
 
     const { data } = await axios.post(ACCESS_TOKEN_URL, undefined, {
       headers: { Accept: "application/json" },

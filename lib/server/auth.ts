@@ -31,7 +31,7 @@ export const getSession = (): session | undefined => {
       }
     }
   } catch (error) {
-    console.error("Failed to parse session:", error)
+    console.error("Failed to parse session :", error)
     deleteSession()
   }
 }
@@ -41,7 +41,7 @@ export const deleteSession = () => cookies().delete("session")
 export const getAccessToken = async (code: string | undefined | null) => {
   try {
     if (!code) throw new Error("Authorization code is missing")
-    if (!BASE_URL) throw new Error("Base URL is not configured")
+    if (!BASE_URL) throw new Error("Base url is missing")
 
     const { data } = await api.get("/api/auth/accessToken", {
       params: { code },
@@ -49,7 +49,7 @@ export const getAccessToken = async (code: string | undefined | null) => {
 
     return data
   } catch (error) {
-    console.error("Get token failed:", error)
+    console.error("Get token failed :", error)
     return { message: "Failed to retrieve access token", status: false }
   }
 }
@@ -63,8 +63,8 @@ export const getUser = async (token: string) => {
     })
     return data as GitHubUser
   } catch (error) {
-    console.error("Failed to get user:", error)
-    return { message: "Failed to get user", status: false }
+    console.error("getUser failed :", error)
+    return { message: "Get user failed", status: false }
   }
 }
 
@@ -72,16 +72,16 @@ export const verifySession = async (session: session) => {
   try {
     const { token, userId } = session
     if (!token || !userId || !BASE_URL)
-      throw new Error("Failed to verify user, something is missing")
+      throw new Error("Failed to verify user, some values are missing")
 
     const userData = await getUser(token)
 
     const isUserIdMismatch = "id" in userData && userData.id.toString() !== userId.toString()
     if (isUserIdMismatch) throw new Error("User is not valid, id is mismatch")
 
-    return { message: "Verify session successfully", status: true }
+    return { message: "Verify session successfully done", status: true }
   } catch (error) {
-    console.error("Token verification failed:", error)
-    return { message: "Failed to verify session", status: false }
+    console.error("verifySession failed :", error)
+    return { message: "Token verification failed", status: false }
   }
 }
