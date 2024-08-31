@@ -4,6 +4,12 @@
 
 @layer base {
   :root {
+    --linear-color-1: hsla(255, 93%, 66%, 0);
+    --linear-color-2: hsla(273, 40%, 71%, 0.852);
+    --linear-color-3: hsla(255, 52%, 90%, 0.816);
+    --linear-color-4: hsla(100, 3%, 90%, 0.798);
+    --linear-color-5: hsla(0, 6%, 100%, 0.76);
+    --linear-color-6: hsl(0 0% 100%);
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
@@ -32,6 +38,12 @@
   }
 
   .dark {
+    --linear-color-1: hsla(255, 95%, 56%, 0);
+    --linear-color-2: hsla(272, 60%, 28%, 0.852);
+    --linear-color-3: hsla(254, 37%, 12%, 0.816);
+    --linear-color-4: hsla(255, 40%, 6%, 0.798);
+    --linear-color-5: hsla(224, 71%, 4%, 0.76);
+    --linear-color-6: hsl(224, 71%, 4%);
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
     --card: 224 71.4% 4.1%;
@@ -77,68 +89,15 @@
     -webkit-touch-callout: none !important;
   }
 
-  .rec1 {
-    position: absolute;
-    z-index: -10;
-    width: 550px;
-    height: 550px;
-    top: 0;
-
-    background: #7d12ff;
-    filter: blur(100px);
-    transform: rotate(45deg);
-  }
-
-  .rec2 {
-    position: absolute;
-    z-index: -10;
-    width: 700px;
-    height: 750px;
-
-    background: #764ba6;
-    filter: blur(200px);
-    transform: rotate(45deg);
-  }
-
-  .rec3 {
-    position: absolute;
-    z-index: -10;
-    width: 600px;
-    height: 600px;
-
-    background: #7480ff;
-    filter: blur(300px);
-    transform: rotate(45deg);
-  }
-
-  /* Ellipse 3 */
-
-  .ellipse {
-    position: absolute;
-    height: 1241px;
-    border-radius: 100%;
-    top: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* background: linear-gradient(
-      360deg,
-      #5b27f900 -0.62%,
-      #764ba6e6 0.38%,
-      #3e2653cc 1.39%,
-      #181329 2.39%,
-      #030712 99.98%
-    ); */
-
+  .ellipse-background {
     background: linear-gradient(
       179.98deg,
-      rgba(91, 39, 249, 0) -0.62%,
-      /* rgba(113, 45, 190, 0.923) 0.38%, */ rgba(75, 29, 115, 0.852) 1.39%,
-      rgba(24, 19, 41, 0.81575) 2.39%,
-      rgba(12, 9, 21, 0.797875) 3.4%,
-      rgba(3, 7, 18, 0.76) 9.44%,
-      #030712 99.98%
+      var(--linear-color-1) -0.62%,
+      var(--linear-color-2) 1.39%,
+      var(--linear-color-3) 2.39%,
+      var(--linear-color-4) 3.4%,
+      var(--linear-color-5) 9.44%,
+      var(--linear-color-6) 99.98%
     );
   }
 }
