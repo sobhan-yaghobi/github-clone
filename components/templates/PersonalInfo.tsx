@@ -1,5 +1,5 @@
 import React from "react"
-import { timeAgo } from "@/lib/utils"
+import { timeAgo } from "@/lib/utils/function"
 
 import { ArrowUpRight, CalendarClock, CalendarPlus2, Mail, MapPin } from "lucide-react"
 

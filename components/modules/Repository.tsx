@@ -1,5 +1,5 @@
 import React from "react"
-import { getRepositoryDownloadUrl, timeAgo } from "@/lib/utils"
+import { getRepositoryDownloadUrl, timeAgo } from "@/lib/utils/function"
 
 import { DownloadCloud } from "lucide-react"
 

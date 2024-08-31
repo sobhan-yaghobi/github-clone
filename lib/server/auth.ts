@@ -1,7 +1,7 @@
 import "server-only"
 
 import { cookies } from "next/headers"
-import { BASE_URL } from "../utils"
+import { BASE_URL } from "../utils/variable"
 import axios from "axios"
 
 const api = axios.create({

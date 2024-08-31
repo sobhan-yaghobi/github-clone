@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import { useToast } from "../ui/use-toast"
 
-import { AUTHORIZE_URL, CLIENT_ID } from "@/lib/utils"
+import { AUTHORIZE_URL, CLIENT_ID } from "@/lib/utils/variable"
 
 import GithubIcon from "@/public/github-mark-white.svg"
 

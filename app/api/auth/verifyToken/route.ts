@@ -1,7 +1,7 @@
 import axios from "axios"
 import { NextRequest, NextResponse } from "next/server"
 
-import { GET_USER_URL } from "@/lib/utils"
+import { GET_USER_URL } from "@/lib/utils/variable"
 
 export const dynamic = "force-dynamic"
 

@@ -1,7 +1,7 @@
 import axios from "axios"
 import { NextRequest, NextResponse } from "next/server"
 
-import { ACCESS_TOKEN_URL, CLIENT_ID, CLIENT_SECRET } from "@/lib/utils"
+import { ACCESS_TOKEN_URL, CLIENT_ID, CLIENT_SECRET } from "@/lib/utils/variable"
 
 export const dynamic = "force-dynamic"
 
@@ -11,7 +11,7 @@ export const GET = async (request: NextRequest) => {
     const code = searchParams.get("code")
 
     if (!CLIENT_ID || !CLIENT_SECRET || !code)
-      throw new Error("get access token failed , some value are missing")
+      throw new Error("Get access token failed, some value are missing")
 
     const { data } = await axios.post(ACCESS_TOKEN_URL, undefined, {
       headers: { Accept: "application/json" },
@@ -26,7 +26,7 @@ export const GET = async (request: NextRequest) => {
 
     return NextResponse.json(data)
   } catch (error) {
-    const message = typeof error === "string" ? error : "failed to get access token"
+    const message = typeof error === "string" ? error : "Failed to get access token"
     return NextResponse.json({
       message,
       status: false,
