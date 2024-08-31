@@ -25,7 +25,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ code }) => {
         loginFailed(loginResult.message)
       }
     } catch (error) {
-      console.error("Login error:", error)
+      console.error("Login failed :", error)
       loginFailed("An unexpected error occurred")
     }
   }
