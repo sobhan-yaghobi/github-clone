@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import { useRouter } from "next/navigation"
 import { useToast } from "../ui/use-toast"
 
@@ -17,7 +17,7 @@ const GithubLoginButton: React.FC<GithubLoginButtonProps> = ({ isLoading, setIsL
 
   const authorizeInGithub = () => {
     if (!CLIENT_ID || !AUTHORIZE_URL)
-      return toast({ title: "client id not found", variant: "destructive" })
+      return toast({ title: "Authorize failed, some url is missing", variant: "destructive" })
 
     setIsLoading(true)
     router.push(`${AUTHORIZE_URL}?client_id=${CLIENT_ID}&scope=repo`)
