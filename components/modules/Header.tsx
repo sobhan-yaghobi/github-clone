@@ -17,14 +17,14 @@ const Header: React.FC = () => {
               width={40}
               height={40}
               src={GithubIcon}
-              className="absolute dark:opacity-0"
+              className="size-12 absolute dark:opacity-0"
               alt="github-icon"
             />
             <Image
               width={40}
               height={40}
               src={GithubWhiteIcon}
-              className="absolute opacity-0 dark:opacity-100"
+              className="size-12 absolute opacity-0 dark:opacity-100"
               alt="github-icon"
             />
           </div>

@@ -7,20 +7,22 @@ import Image from "next/image"
 import Profile from "@/components/templates/Profile"
 
 const page: React.FC = async () => {
-  const session = getSession() as session
+  try {
+    const session = getSession() as session
 
-  const userData = await getUser(session.token)
+    const userData = await getUser(session.token)
 
-  if (!userData || !("id" in userData)) {
+    if (!userData || !("id" in userData)) throw new Error("Get user data failed")
+
+    return <Profile user={userData} />
+  } catch (error) {
     return (
       <div className="w-full current-screen-height center flex-col">
-        <Image width={250} height={250} src={errorIcon} alt="failure-icon" />
+        <Image className="size-60" width={240} height={240} src={errorIcon} alt="failure-icon" />
         <h1 className="text-2xl font-thin mt-6">Failed to load your data</h1>
       </div>
     )
   }
-
-  return <Profile user={userData} />
 }
 
 export default page
