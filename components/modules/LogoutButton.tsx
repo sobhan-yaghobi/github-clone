@@ -19,6 +19,7 @@ import {
 
 const LogoutButton = () => {
   const logout = () => logoutFormAction()
+
   return (
     <>
       <Dialog>
