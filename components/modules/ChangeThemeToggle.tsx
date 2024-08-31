@@ -1,7 +1,10 @@
 "use client"
 
-import { useTheme } from "next-themes"
 import React from "react"
+import { useTheme } from "next-themes"
+
+import { Moon, Sun } from "lucide-react"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,10 +12,10 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu"
 import { Button } from "../ui/button"
-import { Moon, Sun } from "lucide-react"
 
 const ChangeThemeToggle: React.FC = () => {
   const { setTheme, themes } = useTheme()
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
