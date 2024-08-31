@@ -37,6 +37,7 @@ const Following: React.FC<FollowingProps> = async ({ url }) => {
       </>
     )
   } catch (error) {
+    console.log("Following component failed :", error)
     return <ErrorComponent message={`Failed to get following ${url}`} />
   }
 }

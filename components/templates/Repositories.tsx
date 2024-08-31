@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import { getSession } from "@/lib/server/auth"
+
 import { GET_REPOSITORY_LIST } from "@/lib/utils/variable"
 
 import ErrorComponent from "../modules/ErrorComponent"
@@ -29,7 +30,7 @@ const Repositories: React.FC = async () => {
       </>
     )
   } catch (error) {
-    console.log("Repositories Component Error :", error)
+    console.log("Repositories Component failed :", error)
     return (
       <div className="h-full center">
         <ErrorComponent message="Failed to get repositories" />

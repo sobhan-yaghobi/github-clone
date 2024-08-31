@@ -16,6 +16,7 @@ const page: React.FC = async () => {
 
     return <Profile user={userData} />
   } catch (error) {
+    console.log("Home page failed :", error)
     return (
       <div className="w-full current-screen-height center flex-col">
         <Image className="size-60" width={240} height={240} src={errorIcon} alt="failure-icon" />

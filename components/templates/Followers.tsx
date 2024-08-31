@@ -36,6 +36,7 @@ const Followers: React.FC<FollowersProps> = async ({ url }) => {
       </>
     )
   } catch (error) {
+    console.log("Followers component failed :", error)
     return <ErrorComponent message="Failed to get followers" />
   }
 }
