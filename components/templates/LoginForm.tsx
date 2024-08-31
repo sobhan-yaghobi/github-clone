@@ -57,7 +57,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ code }) => {
     }
   }, [code])
   return (
-    <div className="bg-white/50 dark:bg-black/50 max-w-96 p-6 backdrop-blur-lg shadow-xl shadow-black/10 rounded-lg absolute">
+    <div className="z-50 bg-white/50 dark:bg-black/50 max-w-96 p-6 backdrop-blur-lg shadow-xl shadow-black/10 rounded-lg absolute">
       <section className="text-center [&>*]:mt-3 [&]:first:*:!mt-0">
         <h1 className="text-xl">Welcome to GitRetrieve</h1>
 
