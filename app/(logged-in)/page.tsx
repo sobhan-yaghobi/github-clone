@@ -6,6 +6,8 @@ import errorIcon from "@/public/error-icon.svg"
 import Image from "next/image"
 import Profile from "@/components/templates/Profile"
 
+export const dynamic = "force-dynamic"
+
 const page: React.FC = async () => {
   try {
     const session = getSession() as session
