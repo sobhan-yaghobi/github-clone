@@ -4,13 +4,9 @@ import React, { useEffect, useState } from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useToast } from "../ui/use-toast"
 
-import { loginFormAction } from "@/app/actions/login"
+import { loginFormAction } from "@/server-actions/auth/login"
 
 import GithubLoginButton from "../modules/GithubLoginButton"
-
-type LoginFormProps = {
-  code: string | null
-}
 
 const LoginForm: React.FC<LoginFormProps> = ({ code }) => {
   const searchParams = useSearchParams()

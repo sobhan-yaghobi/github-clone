@@ -6,10 +6,6 @@ import Repositories from "./Repositories"
 import Followers from "./Followers"
 import Following from "./Following"
 
-type ProfileProps = {
-  user: GitHubUser
-}
-
 const Profile: React.FC<ProfileProps> = ({ user }) => {
   return (
     <div className="w-full current-screen-height py-6 flex flex-col max-lg:h-auto">

@@ -11,11 +11,6 @@ import GithubIcon from "@/public/github-mark-white.svg"
 import { Button } from "../ui/button"
 import Image from "next/image"
 
-type GithubLoginButtonProps = {
-  isLoading: boolean
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
-}
-
 const GithubLoginButton: React.FC<GithubLoginButtonProps> = ({ isLoading, setIsLoading }) => {
   const { toast } = useToast()
   const router = useRouter()

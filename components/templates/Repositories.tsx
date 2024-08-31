@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios"
-import { getSession, session } from "@/lib/auth/serverFunction"
+import { getSession } from "@/lib/server/auth"
 import { GET_REPOSITORY_LIST } from "@/lib/utils"
 
 import ErrorComponent from "../modules/ErrorComponent"

@@ -1,3 +1,3 @@
-export type SearchParamsComponentProps = {
+type SearchParamsComponentProps = {
   searchParams?: { [key: string]: string | string[] | undefined }
 }

@@ -34,7 +34,7 @@ export const AUTHORIZE_URL = "https://github.com/login/oauth/authorize"
 export const ACCESS_TOKEN_URL = "https://github.com/login/oauth/access_token"
 export const GET_USER_URL = "https://api.github.com/user"
 export const GET_REPOSITORY_LIST = "https://api.github.com/user/repos"
-export const getRepositoryUrlDownload = (
+export const getRepositoryDownloadUrl = (
   username: string,
   repositoryName: string,
   defaultBranch: string

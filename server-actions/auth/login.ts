@@ -1,7 +1,6 @@
 "use server"
 
-import { getAccessToken, getUser } from "@/lib/auth/serverFunction"
-import { setSession } from "@/lib/auth/serverFunction"
+import { getAccessToken, getUser, setSession } from "@/lib/server/auth"
 
 export const loginFormAction = async (code: string) => {
   try {

@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { logoutFormAction } from "@/app/actions/logout"
+import { logoutFormAction } from "@/server-actions/auth/logout"
 
 import { Button } from "../ui/button"
 import { LogOut } from "lucide-react"

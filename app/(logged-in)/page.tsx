@@ -1,6 +1,5 @@
 import React from "react"
-import { getUser } from "@/lib/auth/serverFunction"
-import { getSession, session } from "@/lib/auth/serverFunction"
+import { getSession, getUser } from "@/lib/server/auth"
 
 import errorIcon from "@/public/error-icon.svg"
 

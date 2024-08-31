@@ -1,13 +1,9 @@
 import React from "react"
 import axios from "axios"
-import { getSession, session } from "@/lib/auth/serverFunction"
+import { getSession } from "@/lib/server/auth"
 
 import ErrorComponent from "../modules/ErrorComponent"
 import Follower from "../modules/Follower"
-
-type FollowersProps = {
-  url: string
-}
 
 const Followers: React.FC<FollowersProps> = async ({ url }) => {
   try {

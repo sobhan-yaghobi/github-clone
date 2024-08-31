@@ -1,10 +1,12 @@
 import "server-only"
 
 import { cookies } from "next/headers"
-import axios from "axios"
 import { BASE_URL } from "../utils"
+import axios from "axios"
 
-export type session = { userId: string; token: string }
+const api = axios.create({
+  baseURL: BASE_URL,
+})
 
 export const setSession = (session: session) => {
   const threeDay = 24 * 60 * 60 * 1000
@@ -41,7 +43,7 @@ export const getAccessToken = async (code: string | undefined | null) => {
     if (!code) throw new Error("Authorization code is missing")
     if (!BASE_URL) throw new Error("Base URL is not configured")
 
-    const { data } = await axios.get(`${BASE_URL}/api/auth/accessToken`, {
+    const { data } = await api.get("/api/auth/accessToken", {
       params: { code },
     })
 
@@ -54,7 +56,7 @@ export const getAccessToken = async (code: string | undefined | null) => {
 
 export const getUser = async (token: string) => {
   try {
-    const { data } = await axios.get(`${BASE_URL}/api/auth/verifyToken`, {
+    const { data } = await api.get("/api/auth/verifyToken", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

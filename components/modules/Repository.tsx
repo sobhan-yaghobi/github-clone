@@ -1,5 +1,5 @@
 import React from "react"
-import { getRepositoryUrlDownload, timeAgo } from "@/lib/utils"
+import { getRepositoryDownloadUrl, timeAgo } from "@/lib/utils"
 
 import { DownloadCloud } from "lucide-react"
 
@@ -7,12 +7,8 @@ import Link from "next/link"
 import { Badge } from "../ui/badge"
 import { Button } from "../ui/button"
 
-type RepositoryProps = {
-  repository: Repository
-}
-
 const Repository: React.FC<RepositoryProps> = ({ repository }) => {
-  const downloadUrl = getRepositoryUrlDownload(
+  const downloadUrl = getRepositoryDownloadUrl(
     repository.owner.login,
     repository.name,
     repository.default_branch

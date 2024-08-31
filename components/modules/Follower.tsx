@@ -7,11 +7,6 @@ import { Button } from "../ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "../ui/hover-card"
 
-type FollowerProps = {
-  follower: GitHubFollower
-  index: number
-}
-
 const Follower: React.FC<FollowerProps> = ({ follower, index }) => {
   return (
     <HoverCard>

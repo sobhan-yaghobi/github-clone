@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
-import { verifySession } from "./lib/auth/serverFunction"
-import { getSession } from "./lib/auth/serverFunction"
+import { verifySession } from "./lib/server/auth"
+import { getSession } from "./lib/server/auth"
 
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
